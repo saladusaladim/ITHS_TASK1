@@ -29,7 +29,7 @@ class Deck:
 
     def generateCards(self):
         suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
-        ranks =  ['2', '3', '4', '5', '6', '7', '8','9','10','jack','queen','king','ace']
+        ranks =  ['2', '3', '4', '5', '6', '7', '8','9','10','Jack','Queen','King','Ace']
         deck = []
         for suit in suits:
             for rank in ranks: 
@@ -61,20 +61,20 @@ class Card:
 
     def setValue(self):
         match self.rank:
-            case 'jack'|'queen'|'king':
+            case 'Jack'|'Queen'|'King':
                 value = 10
-            case 'ace':
+            case 'Ace':
                 value = 1
             case _:
                 value = int(self.rank)    
         return(value)
 
     def __str__(self) -> str:
-        return f'{self.rank} of {self.suit} with value {self.value}'
+        return f' < {self.rank} of {self.suit} with value {self.value} > '
 
 class Hand: 
     def __init__(self) -> None:
-        self.value = 0
+        #self.value = 0
         self.cards = []
 
     def getHandValue(self):
@@ -89,10 +89,10 @@ class Hand:
         self.cards.append(card)
 
     def getCards(self):
-        cardsInHand = []
+        cardsInHand = ''
         if not self.cards:
             print('No cards in the hand')
             return cardsInHand        
         for card in self.cards:
-            cardsInHand.append(str(card))
-            return(cardsInHand)
+            cardsInHand += f'{str(card)}'
+        return(cardsInHand)

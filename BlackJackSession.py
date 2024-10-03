@@ -19,8 +19,8 @@ def main():
     player.draw(deck.dealCard())
     player.draw(deck.dealCard())
 
+
     print(f'Dealers visible card: {dealer.hand.cards[0]}')
-    print(f'Dealers visible card: {dealer.hand.cards[1]}')
 
     while True:
         print('Do you want to hit or stand? Type the word:')
